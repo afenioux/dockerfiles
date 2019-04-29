@@ -3,12 +3,13 @@ MAINTAINER Arnaud Fenioux <afenioux _ hopus.net>
 EXPOSE 179
 
 # This Dockerfile is inspired from https://hub.docker.com/r/pierky/bird
-# This is a multistage build to reduce disk usage (you may also want to try afenioux/bird:alpine instead of debian)
-# thanks to @jptazzo https://intro-2019-04.container.training/#196
-# This image is build with the command : `docker build -t afenioux/bird:2.0.4 --build-arg BIRDV=2.0.4 .`
+# These are multi-stage build to reduce disk usage thanks to @jptazzo https://intro-2019-04.container.training/#196
+# You may also want to try alpine instead of debian -Left as an exercise for the reader-
+
+# This image is build with the command : `docker build -t afenioux/bird --build-arg BIRDV=2.0.4 .`
 
 # The host's file at /somewhere/bird/bird.conf is used as the configuration file for BIRD (/etc/bird/bird.conf in the containter)
-# if you run with this option : `docker run -d -v /mnt/flash/docker/bird:/etc/bird:rw --memory 512m --memory-swap 512m --cpus 1.1 afenioux/bird:2.0.4`
+# if you run with this option : `docker run -d -v /mnt/flash/docker/bird:/etc/bird:rw --memory 512m --memory-swap 512m --cpus 1.1 afenioux/bird`
 # logs are available with `docker logs <container_id> is you set `log stderr all;` in bird.conf, but you may write in a file like /etc/bird/bird.logs
 
 RUN apt-get update && apt-get install -y \
