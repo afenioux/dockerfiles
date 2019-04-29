@@ -20,7 +20,7 @@ docker build -t afenioux/bird:2.0.4 --build-arg BIRDV=2.0.4 .
 
 # Bird configuration
 
-If you run with this option : `docker run -d -v /mnt/flash/docker/bird:/etc/bird:rw --memory 512m --memory-swap 512m --cpus 1.1 afenioux/bird`
+If you run with this option : `docker run -d -p 179:179 -v /mnt/flash/docker/bird:/etc/bird:rw --memory 512m --memory-swap 512m --cpus 1.1 afenioux/bird`
 
 The host's file at /somewhere/bird/bird.conf is used as the configuration file for BIRD (/etc/bird/bird.conf in the containter) and can be edited
 on the host.
@@ -33,7 +33,7 @@ for more details.
 
 # Example
 ```
-#docker run -d -v /mnt/flash/docker/bird:/etc/bird:rw --memory 512m --memory-swap 512m --cpus 1.1 afenioux/bird
+#docker run -d -p179:179 -v /mnt/flash/docker/bird:/etc/bird:rw --memory 512m --memory-swap 512m --cpus 1.1 afenioux/bird
 f7944ae0253e3742f9de7d8e06ca4d468ac65f7caf1ce36bf1fc75d454e3766a
 
 # docker logs f794

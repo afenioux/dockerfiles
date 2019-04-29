@@ -9,7 +9,7 @@ EXPOSE 179
 # This image is build with the command : `docker build -t afenioux/bird --build-arg BIRDV=2.0.4 .`
 
 # The host's file at /somewhere/bird/bird.conf is used as the configuration file for BIRD (/etc/bird/bird.conf in the containter)
-# if you run with this option : `docker run -d -v /mnt/flash/docker/bird:/etc/bird:rw --memory 512m --memory-swap 512m --cpus 1.1 afenioux/bird`
+# if you run with this option : `docker run -d -p 179:179 -v /mnt/flash/docker/bird:/etc/bird:rw --memory 512m --memory-swap 512m --cpus 1.1 afenioux/bird`
 # logs are available with `docker logs <container_id> is you set `log stderr all;` in bird.conf, but you may write in a file like /etc/bird/bird.logs
 
 RUN apt-get update && apt-get install -y \
