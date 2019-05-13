@@ -25,7 +25,7 @@ If you run with this option : `docker run -d -p 179:179 -v /mnt/flash/docker/bir
 The host's file at /somewhere/bird/bird.conf is used as the configuration file for BIRD (/etc/bird/bird.conf in the containter) and can be edited
 on the host.
 
-Logs are available with `docker logs <container_id> is you set `log stderr all;` in bird.conf, but you may write in a file like /etc/bird/bird.logs
+Logs are available with `docker logs <container_id>` irfs you set `log stderr all;` in bird.conf, but you may write in a file like /etc/bird/bird.logs
 
 see [BIRD 2 documentation](https://bird.network.cz/?get_doc&f=bird.html&v=20)
 and [BIRD 2 configuration example](https://github.com/BIRD/bird/blob/master/doc/bird.conf.example)
