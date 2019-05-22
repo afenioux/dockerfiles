@@ -37,5 +37,11 @@ RUN apt-get update && apt-get install -y libreadline7 libncurses5
 ARG BIRDV=2.0.4
 COPY --from=compiler /tmp/bird-${BIRDV}/bird /tmp/bird-${BIRDV}/birdc /tmp/bird-${BIRDV}/birdcl /usr/local/sbin/
 RUN mkdir /etc/bird /run/bird
+# Set Timezone to Europe
+ENV TZ=Europe/Paris
+RUN echo $TZ > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
+
+# Add some stuff for debugging network
+RUN apt-get install -y tcpdump netcat
 
 CMD bird -d
