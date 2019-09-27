@@ -1,6 +1,9 @@
 # Tag `latest`
 This tag refers to the latest version of bird and debian available when I built images
 
+# Tag `2.0.6`
+This image is based on the 2.0.6 version of [BIRD](https://bird.network.cz) and build from debian
+
 # Tag `2.0.5`
 This image is based on the 2.0.5 version of [BIRD](https://bird.network.cz) and build from debian
 
@@ -17,7 +20,7 @@ You may also want to try alpine instead of debian -Left as an exercise for the r
 
 These images are build with the commands : 
 ```
-docker build -t afenioux/bird --build-arg BIRDV=2.0.5 .
+docker build -t afenioux/bird --build-arg BIRDV=2.0.6 .
 docker build -t afenioux/bird:2.0.4 --build-arg BIRDV=2.0.4 .
 ```
 
