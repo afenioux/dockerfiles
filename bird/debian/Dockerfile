@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
     unzip
 
 WORKDIR /tmp
-ARG BIRDV=2.0.6
+ARG BIRDV=2.0.7
 RUN curl -O -L ftp://bird.network.cz/pub/bird/bird-${BIRDV}.tar.gz
 RUN tar -xvzf bird-${BIRDV}.tar.gz
 
@@ -33,8 +33,8 @@ RUN ./configure --prefix=/usr --sysconfdir=/etc/bird --localstatedir=/var --with
     make
 
 FROM debian:stable
-RUN apt-get update && apt-get install -y libreadline7 libncurses5
-ARG BIRDV=2.0.6
+RUN apt-get update && apt-get install -y libreadline7 libncurses5 libc6
+ARG BIRDV=2.0.7
 COPY --from=compiler /tmp/bird-${BIRDV}/bird /tmp/bird-${BIRDV}/birdc /tmp/bird-${BIRDV}/birdcl /usr/local/sbin/
 RUN mkdir /etc/bird /run/bird
 # Set Timezone to Europe
